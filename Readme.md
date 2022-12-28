@@ -20,7 +20,7 @@ What this has:
 What this DOESN'T have:
 * Macros
     * Need to reverse engineer those.
-* Support for Halo65/Air60
+* Support for Halo65/Air75
     * I don't have them.
 * RGB Control
     * I don't need that, personally.
