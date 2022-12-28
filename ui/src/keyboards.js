@@ -57,72 +57,72 @@ export const Air60 = {
         return [
             [
                 new Key({
-                    id: "esc", 
-                    color: "mint", 
+                    id: "esc",
+                    color: "mint",
                     name: "Escape",
                     altLabel: "` ~",
                 }),
-                new Key({ 
-                    id: "num1", 
-                    label: "1", 
+                new Key({
+                    id: "num1",
+                    label: "1",
                     altLabel: "!",
                     altID: mac ? "fn_f1" : "brightnessdown",
                     altName: mac ? "F1 (with Fn held)" : "Brightness Down",
                     altDefaultMapping: mac ? "f1" : "brightnessdown",
                 }),
-                new Key({ 
-                    id: "num2", 
-                    label: "2", 
+                new Key({
+                    id: "num2",
+                    label: "2",
                     altLabel: "@",
                     altID: mac ? "fn_f2" : "brightnessup",
                     altName: mac ? "F2 (with Fn held)" : "Brightness Up",
                     altDefaultMapping: mac ? "f2" : "brightnessup",
                 }),
-                new Key({ 
-                    id: "num3", 
-                    label: "3", 
+                new Key({
+                    id: "num3",
+                    label: "3",
                     altLabel: "#",
                     altID: mac ? "fn_f3" : "missioncontrol",
                     altName: mac ? "F3 (with Fn held)" : "Mission Control",
                     altDefaultMapping: mac ? "f3" : "none",
                 }),
-                new Key({ 
-                    id: "num4", 
-                    label: "4", 
+                new Key({
+                    id: "num4",
+                    label: "4",
                     altLabel: "$",
                     altID: mac ? "fn_f4" : "launchpad",
                     altName: mac ? "F4 (with Fn held)" : "Launchpad",
                     altDefaultMapping: mac ? "f4" : "none",
                 }),
-                new Key({ 
-                    id: "num5", 
-                    label: "5", 
+                new Key({
+                    id: "num5",
+                    label: "5",
                     altLabel: "%",
                     color: "gray",
                     altID: mac ? "fn_f5" : "backlightdown",
                     altName: mac ? "F5 (with Fn held)" : "Backlight Down",
-                    altDefaultMapping: mac ? "f5" : "backlightdown" 
+                    altDefaultMapping: mac ? "f5" : "backlightdown",
                 }),
-                new Key({ 
-                    id: "num6", 
-                    label: "6", 
-                    altLabel: "^" ,
+                new Key({
+                    id: "num6",
+                    label: "6",
+                    altLabel: "^",
                     color: "gray",
                     altID: mac ? "fn_f6" : "backlightup",
                     altName: mac ? "F6 (with Fn held)" : "Backlight Up",
                     altDefaultMapping: mac ? "f6" : "backlightup",
                 }),
-                new Key({ 
-                    id: "num7", 
-                    label: "7", 
+                new Key({
+                    id: "num7",
+                    label: "7",
                     altLabel: "&",
                     color: "gray",
                     altID: mac ? "fn_f7" : "rewind",
                     altName: mac ? "F7 (with Fn held)" : "Rewind",
                     altDefaultMapping: mac ? "f7" : "rewind",
                 }),
-                new Key({ 
-                    id: "num8", 
+                new Key({
+                    id: "num8",
                     label: "8",
                     color: "gray",
                     altLabel: "*",
@@ -130,37 +130,37 @@ export const Air60 = {
                     altName: mac ? "F8 (with Fn held)" : "Play/Pause Toggle",
                     altDefaultMapping: mac ? "f8" : "playpause",
                 }),
-                new Key({ 
-                    id: "num9", 
-                    label: "9", 
+                new Key({
+                    id: "num9",
+                    label: "9",
                     altLabel: "(",
                     altID: mac ? "fn_f9" : "forward",
                     altName: mac ? "F9 (with Fn held)" : "Fast-Forward",
                     altDefaultMapping: mac ? "f9" : "forward",
                 }),
-                new Key({ 
-                    id: "num0", 
-                    label: "0", 
+                new Key({
+                    id: "num0",
+                    label: "0",
                     altLabel: ")",
                     altID: mac ? "fn_f10" : "mute",
                     altName: mac ? "F10 (with Fn held)" : "Mute",
                     altDefaultMapping: mac ? "f10" : "mute",
                 }),
-                new Key({ 
-                    id: "minus", 
-                    label: "-", 
+                new Key({
+                    id: "minus",
+                    label: "-",
                     altLabel: "_",
                     altID: mac ? "fn_f11" : "volumedown",
                     altName: mac ? "F11 (with Fn held)" : "Volume Down",
                     altDefaultMapping: mac ? "f11" : "volumedown",
                 }),
-                new Key({ 
-                    id: "equal", 
-                    label: "=", 
-                    altLabel: "+",                     
+                new Key({
+                    id: "equal",
+                    label: "=",
+                    altLabel: "+",
                     altID: mac ? "fn_f12" : "volumeup",
                     altName: mac ? "F12 (with Fn held)" : "Volume Up",
-                    altDefaultMapping: mac ? "f12" : "volumeup", 
+                    altDefaultMapping: mac ? "f12" : "volumeup",
                 }),
                 new Key({ id: "backspace", width: 2.0, color: "gray" }),
             ],
@@ -232,7 +232,7 @@ export const Air60 = {
                     id: "lshift",
                     label: "SHIFT",
                     name: "Left Shift",
-                    width: 2,
+                    width: 2.0,
                     color: "gray",
                 }),
                 new Key({ id: "z" }),
@@ -340,7 +340,7 @@ export const Air60 = {
                     width: 1,
                     color: "gray",
                     name: "Function",
-                    remappable: false
+                    remappable: false,
                 }),
                 new Key({
                     id: "rctrl",

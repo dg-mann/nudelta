@@ -79,7 +79,9 @@ class Config {
 window.unsafeRemapping = false;
 function safetyOff(silent = false) {
     if (!silent) {
-        alert("Enabling unsafe remapping.\nIf you remap Fn, this will change even your factory reset shortcut, so be careful!");
+        alert(
+            "Enabling unsafe remapping.\nIf you remap Fn, this will change even your factory reset shortcut, so be careful!"
+        );
     }
     window.unsafe = true;
     redrawOptions();
@@ -159,14 +161,7 @@ function redrawKeyboard() {
     );
 }
 
-function drawOptionArray(
-    e,
-    remap,
-    key,
-    alt,
-    column,
-    row
-) {
+function drawOptionArray(e, remap, key, alt, column, row) {
     let id = key.id;
     let defaultMapping = key.defaultMapping;
     let defaultModifiers = key.defaultModifiers;
@@ -277,14 +272,7 @@ function redrawOptions() {
                     })
                 );
                 if (altIDExists) {
-                    columnCount = drawOptionArray(
-                        e,
-                        remap,
-                        key,
-                        true,
-                        1,
-                        4
-                    );
+                    columnCount = drawOptionArray(e, remap, key, true, 1, 4);
                     e.appendChild(
                         n("h3", (e) => {
                             e.style = `
