@@ -59,8 +59,8 @@ export const Air60 = {
                 new Key({
                     id: "esc",
                     color: "mint",
-                    name: "Escape",
-                    altLabel: "` ~",
+                    label: "` ~",
+                    altLabel: "ESC",
                 }),
                 new Key({
                     id: "num1",
@@ -341,13 +341,6 @@ export const Air60 = {
                     color: "gray",
                     name: "Function",
                     remappable: false,
-                }),
-                new Key({
-                    id: "rctrl",
-                    label: "CTRL",
-                    name: "Right Control",
-                    width: 1,
-                    color: "gray",
                 }),
                 new Key({
                     id: "left",
