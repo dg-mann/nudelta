@@ -15,7 +15,7 @@
     You should have received a copy of the GNU General Public License
     along with this program.  If not, see <https://www.gnu.org/licenses/>.
 */
-import air75_keycodes from "../../res/air75_keycodes.yml";
+import air60_keycodes from "../../res/air60_keycodes.yml";
 
 class Key {
     constructor({
@@ -50,8 +50,8 @@ class Key {
     }
 }
 
-export const Air75 = {
-    keycodes: air75_keycodes,
+export const Air60 = {
+    keycodes: air60_keycodes,
     getLayout(mode) {
         let mac = mode === "mac";
         return [
@@ -195,7 +195,6 @@ export const Air75 = {
                 new Key({ id: "minus", label: "-", altLabel: "_" }),
                 new Key({ id: "equal", label: "=", altLabel: "+" }),
                 new Key({ id: "backspace", width: 2.0, color: "gray" }),
-                new Key({ id: "pgup", color: "gray", name: "Page Up" }),
             ],
             [
                 new Key({ id: "tab", width: 1.5, color: "gray" }),
@@ -228,7 +227,6 @@ export const Air75 = {
                     name: "Backslash",
                     altLabel: "|",
                 }),
-                new Key({ id: "pgdn", color: "gray", name: "Page Down" }),
             ],
             [
                 new Key({
@@ -260,7 +258,6 @@ export const Air75 = {
                     altLabel: '"',
                 }),
                 new Key({ id: "enter", width: 2.25, color: "orange" }),
-                new Key({ id: "home", color: "gray" }),
             ],
             [
                 new Key({
@@ -308,7 +305,6 @@ export const Air75 = {
                     name: "Up Arrow",
                     color: "gray",
                 }),
-                new Key({ id: "end", color: "gray" }),
             ],
             [
                 new Key({

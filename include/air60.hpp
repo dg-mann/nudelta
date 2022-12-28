@@ -15,8 +15,8 @@
     You should have received a copy of the GNU General Public License
     along with this program.  If not, see <https://www.gnu.org/licenses/>.
 */
-#ifndef _air75_hpp
-#define _air75_hpp
+#ifndef _air60_hpp
+#define _air60_hpp
 #include "common.hpp"
 
 #include <functional>
@@ -27,14 +27,14 @@
 #include <unordered_map>
 #include <vector>
 
-class Air75 {
+class Air60 {
     public:
         uint16_t firmware;
         std::string productString;
         std::string path;
         std::optional< std::string > requestPath;
 
-        Air75(
+        Air60(
             std::string path,
             uint16_t firmware,
             std::optional< std::string > requestPath = std::nullopt
@@ -46,7 +46,7 @@ class Air75 {
         void setKeymapFromYAML(const std::string &yamlString, bool mac = false);
         void resetKeymap(bool mac = false);
 
-        static std::optional< Air75 > find();
+        static std::optional< Air60 > find();
 
         static const std::vector< uint32_t > defaultKeymapWin;
         static const std::unordered_map< std::string, uint32_t >
@@ -71,7 +71,7 @@ class Air75 {
                 hid_device *data;
                 hid_device
                     *request; // Same on macOS/Linux - different on Windows
-                std::function< void(Air75::Handles &) > cleanup;
+                std::function< void(Air60::Handles &) > cleanup;
         };
         Handles getHandles();
 };

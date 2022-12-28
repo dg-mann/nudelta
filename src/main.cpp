@@ -16,7 +16,7 @@
     along with this program.  If not, see <https://www.gnu.org/licenses/>.
 */
 #include "access.hpp"
-#include "air75.hpp"
+#include "air60.hpp"
 
 #include <fstream>
 #include <hidapi.h>
@@ -29,21 +29,21 @@
     #define NUDELTA_VERSION "UNKNOWN"
 #endif
 
-Air75 getKeyboard() {
-    auto air75Optional = Air75::find();
-    if (!air75Optional.has_value()) {
+Air60 getKeyboard() {
+    auto air60Optional = Air60::find();
+    if (!air60Optional.has_value()) {
         throw std::runtime_error(
-            "Couldn't find a NuPhy Air75 connected to this device. Make sure it's plugged in via USB."
+            "Couldn't find a NuPhy Air60 connected to this device. Make sure it's plugged in via USB."
         );
     }
 
-    auto air75 = air75Optional.value();
+    auto air60 = air60Optional.value();
 
-    p("Found NuPhy Air75 at path {} (Firmware {:04x})\n",
-      air75.path,
-      air75.firmware);
+    p("Found NuPhy Air60 at path {} (Firmware {:04x})\n",
+      air60.path,
+      air60.firmware);
 
-    return air75;
+    return air60;
 }
 
 SSCO_Fn(printVersion) {
@@ -59,22 +59,22 @@ along with this program.  If not, see <https://www.gnu.org/licenses/>.
 }
 
 SSCO_Fn(printFirmware) {
-    auto air75 = getKeyboard();
+    auto air60 = getKeyboard();
 }
 
 SSCO_Fn(resetKeymap) {
     auto mac = opts.options.find("mac") != opts.options.end();
 
-    auto air75 = getKeyboard();
-    air75.resetKeymap(mac);
+    auto air60 = getKeyboard();
+    air60.resetKeymap(mac);
     p("Wrote default keymap config to keyboard.\n");
 }
 
 SSCO_Fn(dumpKeymap) {
     auto mac = opts.options.find("mac") != opts.options.end();
 
-    auto air75 = getKeyboard();
-    auto keys = air75.getKeymap(mac);
+    auto air60 = getKeyboard();
+    auto keys = air60.getKeymap(mac);
     auto file = opts.options.find("dump-keys")->second;
     auto filePtr = fopen(file.c_str(), "wb");
 
@@ -123,8 +123,8 @@ SSCO_Fn(dumpKeymap) {
 SSCO_Fn(loadKeymap) {
     auto mac = opts.options.find("mac") != opts.options.end();
 
-    auto air75 = getKeyboard();
-    auto keys = air75.getKeymap(mac);
+    auto air60 = getKeyboard();
+    auto keys = air60.getKeymap(mac);
     auto file = opts.options.find("load-keys")->second;
     auto filePtr = fopen(file.c_str(), "rb");
     if (!filePtr) {
@@ -145,7 +145,7 @@ SSCO_Fn(loadKeymap) {
         (uint32_t *)(readBuffer + 1024)
     );
 
-    air75.setKeymap(keymap, mac);
+    air60.setKeymap(keymap, mac);
 
     p("Wrote keymap '{}' to the keyboard's {} mode.\n",
       file,
@@ -155,12 +155,12 @@ SSCO_Fn(loadKeymap) {
 SSCO_Fn(loadYAML) {
     auto mac = opts.options.find("mac") != opts.options.end();
 
-    auto air75 = getKeyboard();
+    auto air60 = getKeyboard();
     auto configPath = opts.options.find("load-profile")->second;
 
     std::string configStr;
     std::getline(std::ifstream(configPath), configStr, '\0');
-    air75.setKeymapFromYAML(configStr, mac);
+    air60.setKeymapFromYAML(configStr, mac);
 
     p("Wrote keymap '{}' to the keyboard's {} mode.\n",
       configPath,
@@ -186,7 +186,7 @@ int main(int argc, char *argv[]) {
              printVersion},
          Opt{"firmware",
              'f',
-             "Print the Air75 keyboard's firmware and exit.",
+             "Print the Air60 keyboard's firmware and exit.",
              false,
              printFirmware},
          Opt{"mac",

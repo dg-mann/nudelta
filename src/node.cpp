@@ -16,7 +16,7 @@
     along with this program.  If not, see <https://www.gnu.org/licenses/>.
 */
 #include "access.hpp"
-#include "air75.hpp"
+#include "air60.hpp"
 
 #include <napi.h>
 
@@ -25,18 +25,18 @@ using namespace Napi;
 Napi::Value getKeyboardInfo(const Napi::CallbackInfo &info) {
     Napi::Env env = info.Env();
     try {
-        auto air75Optional = Air75::find();
-        if (!air75Optional.has_value()) {
+        auto air60Optional = Air60::find();
+        if (!air60Optional.has_value()) {
             return env.Null();
         }
 
-        auto air75 = air75Optional.value();
+        auto air60 = air60Optional.value();
 
         auto string =
-            fmt::format("NuPhy Air75 (Firmware {:04x})", air75.firmware);
+            fmt::format("NuPhy Air60 (Firmware {:04x})", air60.firmware);
 
-        if (air75.path.length() <= 20) {
-            string = fmt::format("{} at {}", string, air75.path);
+        if (air60.path.length() <= 20) {
+            string = fmt::format("{} at {}", string, air60.path);
         }
 
         return Napi::String::New(env, string);
@@ -68,8 +68,8 @@ Napi::Value validateYAML(const Napi::CallbackInfo &info) {
         }
 
         auto keymapYAML = info[0].As< Napi::String >().Utf8Value();
-        Air75::validateYAMLKeymap(keymapYAML, false, false);
-        Air75::validateYAMLKeymap(keymapYAML, false, true);
+        Air60::validateYAMLKeymap(keymapYAML, false, false);
+        Air60::validateYAMLKeymap(keymapYAML, false, true);
 
     } catch (std::runtime_error &e) {
         Napi::Error::New(env, e.what()).ThrowAsJavaScriptException();
@@ -98,16 +98,16 @@ Napi::Value setKeymapFromYAML(const Napi::CallbackInfo &info) {
             return env.Null();
         }
 
-        auto air75Optional = Air75::find();
-        if (!air75Optional.has_value()) {
+        auto air60Optional = Air60::find();
+        if (!air60Optional.has_value()) {
             throw std::runtime_error("The keyboard was unplugged.");
         }
 
-        auto air75 = air75Optional.value();
+        auto air60 = air60Optional.value();
 
         auto keymapYAML = info[0].As< Napi::String >().Utf8Value();
-        air75.setKeymapFromYAML(keymapYAML);
-        air75.setKeymapFromYAML(keymapYAML, true);
+        air60.setKeymapFromYAML(keymapYAML);
+        air60.setKeymapFromYAML(keymapYAML, true);
     } catch (std::runtime_error &e) {
         Napi::Error::New(env, e.what()).ThrowAsJavaScriptException();
     }

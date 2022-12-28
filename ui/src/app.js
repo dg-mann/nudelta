@@ -22,7 +22,7 @@ import "@fontsource/nunito/files/nunito-latin-500-normal.woff2";
 
 import "./app.css";
 import "./toggle.css";
-import { Air75 } from "./keyboards.js";
+import { Air60 } from "./keyboards.js";
 import modifiers from "./modifiers.js";
 
 class Config {
@@ -104,7 +104,7 @@ function redrawKeyboard() {
     container.appendChild(
         n("div", (e) => {
             e.className = "keyboard card";
-            let layout = Air75.getLayout(window.mode);
+            let layout = Air60.getLayout(window.mode);
             for (let currentRow in layout) {
                 currentRow = Number(currentRow);
                 let row = layout[currentRow];
@@ -222,7 +222,7 @@ function drawOptionArray(
                 grid-row-end: ${row + 1};
             `;
             column += 2;
-            for (let keycode in Air75.keycodes) {
+            for (let keycode in Air60.keycodes) {
                 e.appendChild(
                     n("option", (e) => {
                         e.innerHTML = keycode;

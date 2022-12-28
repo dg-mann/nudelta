@@ -1,4 +1,4 @@
-# dict Air75::indicesByKeyNameWin
+# dict Air60::indicesByKeyNameWin
 capslock: 3
 lctrl: 5
 lshift: 4
@@ -13,11 +13,6 @@ up: 149
 down: 150
 left: 151
 right: 152
-
-pgup: 91
-pgdn: 92
-home: 93
-end: 94
 
 enter: 81
 tab: 2

@@ -9,7 +9,7 @@ const print = console.log;
 let resourceDir = argv[0];
 
 print('#include "common.hpp"');
-print('#include "air75.hpp"');
+print('#include "air60.hpp"');
 for (let file of fs.readdirSync(resourceDir)) {
     let filePath = path.join(resourceDir, file);
     if (!filePath.endsWith(".yml")) {

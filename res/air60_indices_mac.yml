@@ -1,4 +1,4 @@
-# dict Air75::indicesByKeyNameMac
+# dict Air60::indicesByKeyNameMac
 capslock: 3
 lctrl: 5
 lshift: 4
@@ -8,11 +8,6 @@ rctrl: 65
 rshift: 82
 rmeta: 53
 fn: 59
-
-pgup: 91
-pgdn: 92
-home: 93
-end: 94
 
 enter: 81
 tab: 2
@@ -81,20 +76,6 @@ fn_up: 197
 fn_down: 198
 fn_left: 199
 fn_right: 200
-
-# -- Function Keys
-f1: 132
-f2: 133
-f3: 134
-f4: 135
-f5: 136
-f6: 137
-f7: 138
-f8: 139
-f9: 140
-f10: 141
-f11: 142
-f12: 143
 
 # -- Function Keys (Alternative keycode when Fn is held)
 fn_f1: 180
